@@ -1,0 +1,22 @@
+ 
+                <div *ngFor="let userIter of user;let i = index">
+                 <form   style="width: 50%;">
+                        <div class="form-row">
+                        
+                            <div class="col">
+                              <label>Nombre:</label>
+                                <input type="text" class="form-control"  placeholder="{{userIter.name}}" name="name" [(ngModel)]="nuevo.name" >
+                              </div>
+                          <div class="col">
+                              <label>E-mail:</label>
+                                <input type="text" class="form-control"  placeholder="{{userIter.email}}"  name="email" [(ngModel)]="nuevo.email" >
+                              </div>
+                        </div>
+                        
+                        <button  class="btn btn-outline-success" (click)="editUser(userIter.id, nuevo)"  >
+                            Guardar
+                        </button>
+                        &nbsp;<button  class="btn btn-outline-danger" (click)="close()"  >
+                            Cancelar
+                        </button>
+                  </form>

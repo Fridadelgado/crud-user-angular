@@ -1,0 +1,52 @@
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  
+  <tbody *ngFor="let userIter of user;let i = index">
+          <tr>
+              <td>{{userIter.id}}</td>
+              <td>{{userIter.name}}</td>
+              <td>{{userIter.email}}</td>
+              <td><button  type="button" class="btn btn-outline-danger" (click)="deleteUser(userIter.id)" >Delete</button>
+              &nbsp;<button  (click)="editU(userIter.id)" class="btn btn-outline-success">
+                    Editar
+                </button>
+              
+                    <form   style="width: 50%;" *ngIf="edit[userIter.id]">
+                        <div class="form-row">
+                        
+                            <div class="col">
+                              <label>Nombre:</label>
+                                <input type="text" class="form-control"  placeholder="{{userIter.name}}" name="name" [(ngModel)]="nuevo.name" >
+                              </div>
+                          <div class="col">
+                              <label>E-mail:</label>
+                                <input type="text" class="form-control"  placeholder="{{userIter.email}}"  name="email" [(ngModel)]="nuevo.email" >
+                              </div>
+                        </div>
+                        
+                        
+                        <button  class="btn btn-outline-success" (click)="editUser(userIter.id, nuevo)"  >
+                            Guardar
+                        </button>
+                        &nbsp;<button  class="btn btn-outline-danger" (click)="close()"  >
+                            Cancelar
+                        </button>
+                  </form>
+                
+                  </td>
+            </tr>
+  
+  </tbody>
+</table>
+</div>
+
+
